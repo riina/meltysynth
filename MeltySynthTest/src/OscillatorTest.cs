@@ -15,7 +15,7 @@ namespace MeltySynthTest
 
             foreach (var instrument in soundFont.Instruments)
             {
-                foreach (var region in instrument.Regions.Take(3))
+                foreach (var region in instrument.Regions.ToArray().Take(3))
                 {
                     if (region.SampleModes == LoopMode.NoLoop)
                     {
@@ -89,7 +89,7 @@ namespace MeltySynthTest
 
             foreach (var instrument in soundFont.Instruments)
             {
-                foreach (var region in instrument.Regions.Take(3))
+                foreach (var region in instrument.Regions.ToArray().Take(3))
                 {
                     if (region.SampleModes == LoopMode.NoLoop)
                     {
@@ -163,9 +163,9 @@ namespace MeltySynthTest
         {
             var soundFont = new SoundFont(soundFontName + ".sf2");
 
-            foreach (var instrument in soundFont.Instruments.Take(30))
+            foreach (var instrument in soundFont.Instruments.ToArray().Take(30))
             {
-                foreach (var region in instrument.Regions.Take(3))
+                foreach (var region in instrument.Regions.ToArray().Take(3))
                 {
                     if (region.SampleModes == LoopMode.Continuous)
                     {
@@ -228,9 +228,9 @@ namespace MeltySynthTest
         {
             var soundFont = new SoundFont(soundFontName + ".sf2");
 
-            foreach (var instrument in soundFont.Instruments.Take(30))
+            foreach (var instrument in soundFont.Instruments.ToArray().Take(30))
             {
-                foreach (var region in instrument.Regions.Take(3))
+                foreach (var region in instrument.Regions.ToArray().Take(3))
                 {
                     if (region.SampleModes == LoopMode.Continuous)
                     {

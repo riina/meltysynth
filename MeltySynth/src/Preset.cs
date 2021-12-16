@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Immutable;
 using System.IO;
 
 namespace MeltySynth
@@ -17,12 +16,12 @@ namespace MeltySynth
         private readonly int library;
         private readonly int genre;
         private readonly int morphology;
-        private readonly ImmutableArray<PresetRegion> regions;
+        private readonly PresetRegion[] regions;
 
         private Preset()
         {
             name = "Default";
-            regions = ImmutableArray.Create<PresetRegion>();
+            regions = Array.Empty<PresetRegion>();
         }
 
         private Preset(PresetInfo info, Zone[] zones, Instrument[] instruments)
@@ -42,7 +41,7 @@ namespace MeltySynth
 
             var zoneSpan = zones.AsSpan(info.ZoneStartIndex, zoneCount);
 
-            regions = ImmutableArray.Create(PresetRegion.Create(this, zoneSpan, instruments));
+            regions = PresetRegion.Create(this, zoneSpan, instruments);
         }
 
         internal static Preset[] Create(PresetInfo[] infos, Zone[] zones, Instrument[] instruments)
@@ -92,6 +91,6 @@ namespace MeltySynth
         /// <summary>
         /// The regions of the preset.
         /// </summary>
-        public ImmutableArray<PresetRegion> Regions => regions;
+        public ReadOnlySpan<PresetRegion> Regions => regions;
     }
 }
