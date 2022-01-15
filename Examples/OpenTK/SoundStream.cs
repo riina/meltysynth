@@ -13,7 +13,7 @@ public class SoundStream : IDisposable
     // Reducing the latency will improve responsiveness, but stability will be lost.
     private static readonly int latency = 200;
 
-    private bool disposed = false;
+    private volatile bool disposed = false;
 
     private readonly int sampleRate;
     private readonly int channelCount;
@@ -212,4 +212,9 @@ public class SoundStream : IDisposable
     {
         Dispose(false);
     }
+
+    /// <summary>
+    /// Gets a value that indicates whether the sound is playing.
+    /// </summary>
+    public bool IsPlaying => pollingTask != null;
 }

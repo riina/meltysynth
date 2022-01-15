@@ -1,7 +1,7 @@
 # MeltySynth
 
 MeltySynth is a SoundFont synthesizer written in C#.
-The purpose of this project is to provide a MIDI music playback functionality for any .NET applications without suffering from complicated dependencies.
+The purpose of this project is to provide a MIDI music playback functionality for any .NET applications without complicated dependencies.
 The codebase is lightweight and can be applied to any audio drivers which support streaming audio, such as [SFML.Net](https://github.com/SFML/SFML.Net), [Silk.NET](https://github.com/dotnet/Silk.NET), [OpenTK](https://github.com/opentk/opentk), and [NAudio](https://github.com/naudio/NAudio).
 
 The entire code is heavily inspired by the following projects:
@@ -50,7 +50,7 @@ sequencer.Render(left, right);
 
 ## Features
 
-* No dependencies other than .NET Core 3.1.
+* No dependencies other than .NET Standard 2.1.
 * No memory allocation in the rendering process.
 * No unsafe code.
 
@@ -81,10 +81,13 @@ https://www.youtube.com/watch?v=xNgsIJKxPkI
 * [MIDI file player for Silk.NET (SDL)](https://github.com/sinshu/meltysynth/tree/main/Examples/Silk.NET.SDL)
 * [MIDI file player for OpenTK](https://github.com/sinshu/meltysynth/tree/main/Examples/OpenTK)
 * [MIDI file player for SDL2#](https://github.com/sinshu/meltysynth/tree/main/Examples/SDL2)
+* [MIDI file player for Sokol_csharp](https://github.com/sinshu/meltysynth/tree/main/Examples/Sokol)
 * [MIDI file player for MonoGame](https://github.com/sinshu/meltysynth/tree/main/Examples/MonoGame)
+* [MIDI file player for FNA.NET](https://github.com/sinshu/meltysynth/tree/main/Examples/FNA.NET)
 * [MIDI file player for Raylib-cs](https://github.com/sinshu/meltysynth/tree/main/Examples/Raylib_cs)
 * [MIDI file player for Raylib-CsLo](https://github.com/sinshu/meltysynth/tree/main/Examples/Raylib_CsLo)
 * [MIDI file player for NAudio](https://github.com/sinshu/meltysynth/tree/main/Examples/NAudio)
+* [MIDI file player for CSCore](https://github.com/sinshu/meltysynth/tree/main/Examples/CSCore)
 * [MIDI file player for TinyAudio](https://github.com/sinshu/meltysynth/tree/main/Examples/TinyAudio)
 
 

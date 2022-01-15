@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Immutable;
+using System.Collections.Generic;
 using System.IO;
 
 namespace MeltySynth
@@ -12,12 +12,12 @@ namespace MeltySynth
         internal static readonly Instrument Default = new Instrument();
 
         private readonly string name;
-        private readonly ImmutableArray<InstrumentRegion> regions;
+        private readonly InstrumentRegion[] regions;
 
         private Instrument()
         {
             name = "Default";
-            regions = ImmutableArray.Create<InstrumentRegion>();
+            regions = Array.Empty<InstrumentRegion>();
         }
 
         private Instrument(InstrumentInfo info, Zone[] zones, SampleHeader[] samples)
@@ -28,7 +28,7 @@ namespace MeltySynth
 
             var zoneSpan = zoneCount != 0 ? zones.AsSpan(info.ZoneStartIndex, zoneCount) : Array.Empty<Zone>();
 
-            regions = ImmutableArray.Create(InstrumentRegion.Create(this, zoneSpan, samples));
+            regions = InstrumentRegion.Create(this, zoneSpan, samples);
         }
 
         internal static Instrument[] Create(InstrumentInfo[] infos, Zone[] zones, SampleHeader[] samples)
@@ -68,6 +68,9 @@ namespace MeltySynth
         /// <summary>
         /// The regions of the instrument.
         /// </summary>
-        public ImmutableArray<InstrumentRegion> Regions => regions;
+        public IReadOnlyList<InstrumentRegion> Regions => regions;
+
+        // Internally exposes the raw array for fast enumeration.
+        internal InstrumentRegion[] RegionArray => regions;
     }
 }
